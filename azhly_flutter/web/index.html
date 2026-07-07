@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="AZHly - Smart Room Booking & Management">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="AZHly">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <title>AZHly</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      background: #05030d;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    /* Constrains the app to a phone-sized frame on wide (desktop / browser
+       preview) screens, so running via `flutter run -d chrome`, or any
+       online Flutter-web playground, looks like a real mobile app.
+       On an actual phone browser it simply fills the screen. */
+    #phone-frame {
+      width: 100%;
+      max-width: 430px;
+      height: 100%;
+      max-height: 932px;
+      box-shadow: 0 0 0 1px rgba(124,58,237,0.25), 0 30px 80px rgba(0,0,0,0.55);
+      border-radius: 36px;
+      overflow: hidden;
+      position: relative;
+      background: #0a0e1f;
+    }
+    @media (min-width: 431px) {
+      body { background: radial-gradient(circle at 30% 20%, #1c1140, #05030d); }
+    }
+    #flutter-app-host { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="phone-frame">
+    <div id="flutter-app-host"></div>
+  </div>
+
+  <script src="flutter.js" defer></script>
+  <script>
+    window.addEventListener('load', function () {
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: null,
+        },
+        onEntrypointLoaded: async function (engineInitializer) {
+          const appRunner = await engineInitializer.initializeEngine({
+            hostElement: document.querySelector('#flutter-app-host'),
+          });
+          await appRunner.runApp();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
