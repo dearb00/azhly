@@ -27,7 +27,7 @@ class ClassInfoCard extends StatelessWidget {
     final c = Color(entry.color);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(color: c.withOpacity(0.12), borderRadius: BorderRadius.circular(8)),
+      decoration: BoxDecoration(color: c.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(8)),
       child: Row(mainAxisSize: MainAxisSize.min, children: [
         if (icon != null) ...[Icon(icon, size: 11, color: c), const SizedBox(width: 3)],
         Text(text, style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: c)),
@@ -59,7 +59,7 @@ class ClassInfoCard extends StatelessWidget {
                   if (showDay)
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                      decoration: BoxDecoration(color: color.withOpacity(0.15), borderRadius: BorderRadius.circular(999)),
+                      decoration: BoxDecoration(color: color.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(999)),
                       child: Text(entry.day.substring(0, 3), style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: color)),
                     ),
                 ]),

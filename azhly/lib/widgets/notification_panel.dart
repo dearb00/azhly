@@ -55,7 +55,7 @@ class NotificationPanel extends StatelessWidget {
           decoration: BoxDecoration(
             color: colors.modalBg,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: AppPalette.purple.withOpacity(state.isDarkMode ? 0.35 : 0.2)),
+            border: Border.all(color: AppPalette.purple.withValues(alpha: state.isDarkMode ? 0.35 : 0.2)),
             boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 24, offset: Offset(0, 8))],
           ),
           child: Column(
@@ -99,8 +99,8 @@ class NotificationPanel extends StatelessWidget {
                           return Container(
                             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                             decoration: BoxDecoration(
-                              color: !n.read ? AppPalette.purple.withOpacity(0.06) : Colors.transparent,
-                              border: Border(bottom: BorderSide(color: colors.cardBorder.withOpacity(0.4))),
+                              color: !n.read ? AppPalette.purple.withValues(alpha: 0.06) : Colors.transparent,
+                              border: Border(bottom: BorderSide(color: colors.cardBorder.withValues(alpha: 0.4))),
                             ),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,7 +115,7 @@ class NotificationPanel extends StatelessWidget {
                                       const SizedBox(height: 2),
                                       Text(n.message, style: TextStyle(fontSize: 12, color: colors.textMuted)),
                                       const SizedBox(height: 4),
-                                      Text(_timeAgo(n.timestamp), style: TextStyle(fontSize: 10, color: colors.textMuted.withOpacity(0.7))),
+                                      Text(_timeAgo(n.timestamp), style: TextStyle(fontSize: 10, color: colors.textMuted.withValues(alpha: 0.7))),
                                     ],
                                   ),
                                 ),

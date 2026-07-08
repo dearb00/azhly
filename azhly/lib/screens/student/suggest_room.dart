@@ -92,7 +92,7 @@ class _SuggestRoomPageState extends State<SuggestRoomPage> {
           Container(
             margin: const EdgeInsets.only(bottom: 14),
             padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(color: colors.cardBg, borderRadius: BorderRadius.circular(18), border: Border.all(color: AppPalette.purple.withOpacity(0.5))),
+            decoration: BoxDecoration(color: colors.cardBg, borderRadius: BorderRadius.circular(18), border: Border.all(color: AppPalette.purple.withValues(alpha: 0.5))),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -54,7 +54,7 @@ class _AppHeaderState extends State<AppHeader> {
                       width: 40, height: 40,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppPalette.purple.withOpacity(state.isDarkMode ? 0.2 : 0.12),
+                        color: AppPalette.purple.withValues(alpha: state.isDarkMode ? 0.2 : 0.12),
                       ),
                       child: Icon(Icons.notifications_none_rounded, size: 18, color: colors.accent),
                     ),

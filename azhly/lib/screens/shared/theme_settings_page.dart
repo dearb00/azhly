@@ -76,7 +76,7 @@ class ThemeSettingsPage extends StatelessWidget {
                                   children: [
                                     Container(
                                       width: 40, height: 40,
-                                      decoration: BoxDecoration(color: AppPalette.purple.withOpacity(0.15), borderRadius: BorderRadius.circular(12)),
+                                      decoration: BoxDecoration(color: AppPalette.purple.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(12)),
                                       alignment: Alignment.center,
                                       child: Icon(opt.icon, size: 18, color: colors.accent),
                                     ),
@@ -112,10 +112,10 @@ class ThemeSettingsPage extends StatelessWidget {
                       const SizedBox(height: 22),
                       Text('Preview', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: colors.textMuted)),
                       const SizedBox(height: 10),
-                      Row(
+                      const Row(
                         children: [
                           Expanded(child: _PreviewCard(isDark: true, label: 'Dark Mode')),
-                          const SizedBox(width: 12),
+                          SizedBox(width: 12),
                           Expanded(child: _PreviewCard(isDark: false, label: 'Light Mode')),
                         ],
                       ),
@@ -147,7 +147,7 @@ class _PreviewCard extends StatelessWidget {
           child: Container(
             alignment: Alignment.bottomLeft,
             padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(border: Border.all(color: AppPalette.purple.withOpacity(0.25))),
+            decoration: BoxDecoration(border: Border.all(color: AppPalette.purple.withValues(alpha: 0.25))),
             child: Text(
               label,
               style: TextStyle(

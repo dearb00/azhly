@@ -18,7 +18,7 @@ class StudentDashboard extends StatelessWidget {
           children: [
             Container(
               width: 32, height: 32,
-              decoration: BoxDecoration(color: color.withOpacity(0.15), borderRadius: BorderRadius.circular(10)),
+              decoration: BoxDecoration(color: color.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(10)),
               alignment: Alignment.center,
               child: Icon(icon, size: 16, color: color),
             ),

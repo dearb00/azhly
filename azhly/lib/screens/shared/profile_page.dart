@@ -17,7 +17,7 @@ class ProfilePage extends StatelessWidget {
       child: Row(children: [
         Container(
           width: 32, height: 32,
-          decoration: BoxDecoration(color: AppPalette.purple.withOpacity(0.12), borderRadius: BorderRadius.circular(10)),
+          decoration: BoxDecoration(color: AppPalette.purple.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(10)),
           alignment: Alignment.center,
           child: Icon(icon, size: 15, color: colors.accent),
         ),
@@ -50,7 +50,7 @@ class ProfilePage extends StatelessWidget {
         child: Row(children: [
           Container(
             width: 32, height: 32,
-            decoration: BoxDecoration(color: AppPalette.purple.withOpacity(0.12), borderRadius: BorderRadius.circular(10)),
+            decoration: BoxDecoration(color: AppPalette.purple.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(10)),
             alignment: Alignment.center,
             child: Icon(icon, size: 15, color: colors.accent),
           ),
@@ -115,7 +115,7 @@ class ProfilePage extends StatelessWidget {
               child: Row(children: [
                 Container(
                   width: 32, height: 32,
-                  decoration: BoxDecoration(color: AppPalette.purple.withOpacity(0.12), borderRadius: BorderRadius.circular(10)),
+                  decoration: BoxDecoration(color: AppPalette.purple.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(10)),
                   alignment: Alignment.center,
                   child: Icon(Icons.apartment_outlined, size: 15, color: colors.accent),
                 ),
@@ -174,7 +174,7 @@ class ProfilePage extends StatelessWidget {
             },
             style: OutlinedButton.styleFrom(
               foregroundColor: AppPalette.red,
-              side: BorderSide(color: AppPalette.red.withOpacity(0.4)),
+              side: BorderSide(color: AppPalette.red.withValues(alpha: 0.4)),
               padding: const EdgeInsets.symmetric(vertical: 14),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
             ),

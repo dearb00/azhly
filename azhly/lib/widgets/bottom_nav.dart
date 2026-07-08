@@ -73,7 +73,7 @@ class AppBottomNav extends StatelessWidget {
                 duration: const Duration(milliseconds: 200),
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                 decoration: BoxDecoration(
-                  color: isActive ? AppPalette.purple.withOpacity(state.isDarkMode ? 0.2 : 0.1) : Colors.transparent,
+                  color: isActive ? AppPalette.purple.withValues(alpha: state.isDarkMode ? 0.2 : 0.1) : Colors.transparent,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(

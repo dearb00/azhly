@@ -34,7 +34,7 @@ class RequestCard extends StatelessWidget {
               Expanded(child: Text(request.roomName, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13, color: colors.textPrimary))),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(color: statusColor.withOpacity(0.15), borderRadius: BorderRadius.circular(999)),
+                decoration: BoxDecoration(color: statusColor.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(999)),
                 child: Text(requestStatusLabel(request.status), style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: statusColor)),
               ),
             ],
@@ -56,7 +56,7 @@ class RequestCard extends StatelessWidget {
           if (request.forwardedFrom != null)
             Padding(
               padding: const EdgeInsets.only(top: 4),
-              child: Text('Forwarded by: ${request.forwardedFrom}', style: TextStyle(fontSize: 10, color: colors.textMuted.withOpacity(0.8))),
+              child: Text('Forwarded by: ${request.forwardedFrom}', style: TextStyle(fontSize: 10, color: colors.textMuted.withValues(alpha: 0.8))),
             ),
           if (request.rejectionReason != null)
             Padding(

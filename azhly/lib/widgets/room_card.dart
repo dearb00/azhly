@@ -50,7 +50,7 @@ class RoomCard extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                decoration: BoxDecoration(color: statusColor.withOpacity(0.15), borderRadius: BorderRadius.circular(999)),
+                decoration: BoxDecoration(color: statusColor.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(999)),
                 child: Text(roomStatusLabel(room.status),
                     style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: statusColor)),
               ),
@@ -66,7 +66,7 @@ class RoomCard extends StatelessWidget {
             const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-              decoration: BoxDecoration(color: AppPalette.pink.withOpacity(0.08), borderRadius: BorderRadius.circular(10)),
+              decoration: BoxDecoration(color: AppPalette.pink.withValues(alpha: 0.08), borderRadius: BorderRadius.circular(10)),
               child: Text(
                 '🎓 ${room.currentClass}${room.nextFreeAt != null ? ' · Free at ${room.nextFreeAt}' : ''}',
                 style: const TextStyle(fontSize: 11, color: AppPalette.pink),
@@ -79,7 +79,7 @@ class RoomCard extends StatelessWidget {
             children: room.facilities.take(4).map((f) {
               return Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(color: AppPalette.purple.withOpacity(0.1), borderRadius: BorderRadius.circular(999)),
+                decoration: BoxDecoration(color: AppPalette.purple.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(999)),
                 child: Text(f, style: TextStyle(fontSize: 10, color: colors.accent)),
               );
             }).toList(),

@@ -106,7 +106,7 @@ class _TimetablePageState extends State<TimetablePage> {
                     child: LinearProgressIndicator(
                       value: (count / 3).clamp(0, 1),
                       minHeight: 8,
-                      backgroundColor: AppPalette.purple.withOpacity(0.1),
+                      backgroundColor: AppPalette.purple.withValues(alpha: 0.1),
                       valueColor: const AlwaysStoppedAnimation(AppPalette.pink),
                     ),
                   ),

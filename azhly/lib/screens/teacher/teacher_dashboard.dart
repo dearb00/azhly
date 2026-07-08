@@ -18,7 +18,7 @@ class TeacherDashboard extends StatelessWidget {
           children: [
             Container(
               width: 32, height: 32,
-              decoration: BoxDecoration(color: color.withOpacity(0.15), borderRadius: BorderRadius.circular(10)),
+              decoration: BoxDecoration(color: color.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(10)),
               alignment: Alignment.center,
               child: Icon(icon, size: 16, color: color),
             ),
@@ -72,7 +72,7 @@ class TeacherDashboard extends StatelessWidget {
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(color: colors.cardBg.withOpacity(0.6), borderRadius: BorderRadius.circular(18)),
+            decoration: BoxDecoration(color: colors.cardBg.withValues(alpha: 0.6), borderRadius: BorderRadius.circular(18)),
             child: Center(child: Text('No pending requests 🎉', style: TextStyle(fontSize: 13, color: colors.textMuted))),
           )
         else

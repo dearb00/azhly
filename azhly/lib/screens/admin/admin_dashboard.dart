@@ -25,7 +25,7 @@ class AdminDashboard extends StatelessWidget {
         children: [
           Container(
             width: 32, height: 32,
-            decoration: BoxDecoration(color: color.withOpacity(0.15), borderRadius: BorderRadius.circular(10)),
+            decoration: BoxDecoration(color: color.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(10)),
             alignment: Alignment.center,
             child: Icon(icon, size: 16, color: color),
           ),
@@ -167,7 +167,7 @@ class AdminDashboard extends StatelessWidget {
                 ...rejectedWithReason.map((r) => Container(
                       margin: const EdgeInsets.only(bottom: 8),
                       padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(color: AppPalette.pink.withOpacity(0.08), borderRadius: BorderRadius.circular(12), border: Border.all(color: AppPalette.pink.withOpacity(0.2))),
+                      decoration: BoxDecoration(color: AppPalette.pink.withValues(alpha: 0.08), borderRadius: BorderRadius.circular(12), border: Border.all(color: AppPalette.pink.withValues(alpha: 0.2))),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

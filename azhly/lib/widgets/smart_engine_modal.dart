@@ -22,7 +22,7 @@ class SmartEngineModal extends StatelessWidget {
 
     return Positioned.fill(
       child: Container(
-        color: Colors.black.withOpacity(0.55),
+        color: Colors.black.withValues(alpha: 0.55),
         alignment: Alignment.center,
         child: Padding(
           padding: const EdgeInsets.all(24),
@@ -33,7 +33,7 @@ class SmartEngineModal extends StatelessWidget {
               decoration: BoxDecoration(
                 color: colors.modalBg,
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: AppPalette.purple.withOpacity(0.4)),
+                border: Border.all(color: AppPalette.purple.withValues(alpha: 0.4)),
                 boxShadow: const [BoxShadow(color: Colors.black45, blurRadius: 30)],
               ),
               child: Column(
@@ -60,7 +60,7 @@ class SmartEngineModal extends StatelessWidget {
                       child: LinearProgressIndicator(
                         value: state.smartEngineProgress / 100,
                         minHeight: 8,
-                        backgroundColor: AppPalette.purple.withOpacity(0.15),
+                        backgroundColor: AppPalette.purple.withValues(alpha: 0.15),
                         valueColor: const AlwaysStoppedAnimation(AppPalette.pink),
                       ),
                     ),
@@ -78,7 +78,7 @@ class SmartEngineModal extends StatelessWidget {
                               width: 8, height: 8,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: done ? AppPalette.green : active ? AppPalette.purple : colors.textMuted.withOpacity(0.3),
+                                color: done ? AppPalette.green : active ? AppPalette.purple : colors.textMuted.withValues(alpha: 0.3),
                               ),
                             ),
                             const SizedBox(width: 8),
@@ -87,7 +87,7 @@ class SmartEngineModal extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: active ? FontWeight.w700 : FontWeight.normal,
-                                color: done ? AppPalette.green : active ? colors.accent : colors.textMuted.withOpacity(0.5),
+                                color: done ? AppPalette.green : active ? colors.accent : colors.textMuted.withValues(alpha: 0.5),
                                 decoration: done ? TextDecoration.lineThrough : null,
                               ),
                             ),

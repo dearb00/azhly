@@ -119,7 +119,7 @@ class _RoomFinderPageState extends State<RoomFinderPage> {
           Container(
             margin: const EdgeInsets.only(bottom: 12),
             padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(color: colors.cardBg, borderRadius: BorderRadius.circular(18), border: Border.all(color: AppPalette.purple.withOpacity(0.5), width: 1.4)),
+            decoration: BoxDecoration(color: colors.cardBg, borderRadius: BorderRadius.circular(18), border: Border.all(color: AppPalette.purple.withValues(alpha: 0.5), width: 1.4)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

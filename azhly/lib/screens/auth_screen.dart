@@ -58,7 +58,7 @@ class _AuthScreenState extends State<AuthScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              Align(alignment: Alignment.topRight, child: Padding(padding: const EdgeInsets.all(16), child: const ThemeToggleButton())),
+              const Align(alignment: Alignment.topRight, child: Padding(padding: EdgeInsets.all(16), child: ThemeToggleButton())),
               Expanded(
                 child: Center(
                   child: SingleChildScrollView(
@@ -86,7 +86,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               children: [
                                 Container(
                                   padding: const EdgeInsets.all(4),
-                                  decoration: BoxDecoration(color: AppPalette.purple.withOpacity(0.1), borderRadius: BorderRadius.circular(14)),
+                                  decoration: BoxDecoration(color: AppPalette.purple.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(14)),
                                   child: Row(
                                     children: ['Login', 'Sign Up'].map((label) {
                                       final active = (label == 'Login') == isLogin;
@@ -104,7 +104,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                                 style: TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.w700,
-                                                  color: active ? Colors.white : colors.accent.withOpacity(0.7),
+                                                  color: active ? Colors.white : colors.accent.withValues(alpha: 0.7),
                                                 )),
                                           ),
                                         ),

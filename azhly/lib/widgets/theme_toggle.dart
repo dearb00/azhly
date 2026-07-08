@@ -15,9 +15,9 @@ class ThemeToggleButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
         decoration: BoxDecoration(
-          color: isDark ? AppPalette.purple.withOpacity(0.25) : AppPalette.purple.withOpacity(0.12),
+          color: isDark ? AppPalette.purple.withValues(alpha: 0.25) : AppPalette.purple.withValues(alpha: 0.12),
           borderRadius: BorderRadius.circular(999),
-          border: Border.all(color: AppPalette.purple.withOpacity(isDark ? 0.4 : 0.3)),
+          border: Border.all(color: AppPalette.purple.withValues(alpha: isDark ? 0.4 : 0.3)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

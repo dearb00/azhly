@@ -41,22 +41,22 @@ class AppColors {
 
   Color get accent => isDark ? AppPalette.purpleLight : AppPalette.purple;
 
-  Color get cardBg => isDark ? Colors.white.withOpacity(0.05) : Colors.white.withOpacity(0.65);
-  Color get cardBorder => isDark ? AppPalette.purple.withOpacity(0.25) : AppPalette.purple.withOpacity(0.18);
+  Color get cardBg => isDark ? Colors.white.withValues(alpha: 0.05) : Colors.white.withValues(alpha: 0.65);
+  Color get cardBorder => isDark ? AppPalette.purple.withValues(alpha: 0.25) : AppPalette.purple.withValues(alpha: 0.18);
 
-  Color get inputBg => isDark ? Colors.white.withOpacity(0.06) : Colors.white.withOpacity(0.7);
-  Color get inputBorder => isDark ? AppPalette.purple.withOpacity(0.3) : AppPalette.purple.withOpacity(0.25);
+  Color get inputBg => isDark ? Colors.white.withValues(alpha: 0.06) : Colors.white.withValues(alpha: 0.7);
+  Color get inputBorder => isDark ? AppPalette.purple.withValues(alpha: 0.3) : AppPalette.purple.withValues(alpha: 0.25);
 
-  Color get chipBg => isDark ? AppPalette.purple.withOpacity(0.12) : AppPalette.purple.withOpacity(0.08);
+  Color get chipBg => isDark ? AppPalette.purple.withValues(alpha: 0.12) : AppPalette.purple.withValues(alpha: 0.08);
 
   Color get textPrimary => isDark ? Colors.white : const Color(0xFF1A0A3D);
   Color get textMuted => isDark ? const Color(0xB3B4A0D6) : const Color(0x991A0A3D);
 
-  Color get navBg => isDark ? const Color(0xD9140C32) : Colors.white.withOpacity(0.85);
-  Color get navBorder => isDark ? AppPalette.purple.withOpacity(0.2) : AppPalette.purple.withOpacity(0.15);
+  Color get navBg => isDark ? const Color(0xD9140C32) : Colors.white.withValues(alpha: 0.85);
+  Color get navBorder => isDark ? AppPalette.purple.withValues(alpha: 0.2) : AppPalette.purple.withValues(alpha: 0.15);
   Color get navInactive => isDark ? const Color(0x99B4A0DC) : const Color(0x8A644B96);
 
-  Color get modalBg => isDark ? const Color(0xF2120A2D) : Colors.white.withOpacity(0.97);
+  Color get modalBg => isDark ? const Color(0xF2120A2D) : Colors.white.withValues(alpha: 0.97);
 
   Color statusColor(String status) {
     switch (status) {

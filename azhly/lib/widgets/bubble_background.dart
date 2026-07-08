@@ -96,7 +96,7 @@ class _BubbleBackgroundState extends State<BubbleBackground> with SingleTickerPr
                             shape: BoxShape.circle,
                             gradient: RadialGradient(
                               center: const Alignment(-0.4, -0.4),
-                              colors: [colors[i % colors.length], colors[i % colors.length].withOpacity(0)],
+                              colors: [colors[i % colors.length], colors[i % colors.length].withValues(alpha: 0)],
                             ),
                             border: Border.all(
                               color: widget.isDark ? const Color(0x338C50E6) : const Color(0x59C896F0),
