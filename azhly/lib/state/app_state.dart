@@ -78,6 +78,10 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
   // reacts live instead of only on the next app launch.
   @override
   void didChangePlatformBrightness() {
+    if (themeMode == AppThemeMode.auto) notifyListeners();
+  }
+
+  Future<void> _restore() async {
     try {
       final prefs = await SharedPreferences.getInstance();
       final storedMode = prefs.getString('azhly_theme_mode');
@@ -86,7 +90,8 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
       } else {
         // Fall back to the legacy bool flag from earlier app versions.
         final legacyDark = prefs.getBool('azhly_dark');
-        themeMode = legacyDark == false ? AppThemeMode.light : AppThemeMode.dark;
+        themeMode =
+            legacyDark == false ? AppThemeMode.light : AppThemeMode.dark;
       }
       final userJson = prefs.getString('azhly_user');
       if (userJson != null) {
@@ -96,11 +101,7 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
         } catch (_) {}
       }
     } catch (e) {
-      debugPrint('Error restoring app state: $e');null) {
-      try {
-        currentUser = AppUser.fromJson(jsonDecode(userJson));
-        isAuthenticated = true;
-      } catch (_) {}
+      debugPrint('Error restoring app state: $e');
     }
     notifyListeners();
   }
