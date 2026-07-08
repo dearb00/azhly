@@ -50,7 +50,8 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
       case AppThemeMode.light:
         return false;
       case AppThemeMode.auto:
-        return WidgetsBinding.instance.platformDispatcher.platformBrightness == Brightness.dark;
+        return WidgetsBinding.instance.platformDispatcher.platformBrightness ==
+            Brightness.dark;
     }
   }
 
@@ -67,28 +68,35 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
 
   AppState() {
     WidgetsBinding.instance.addObserver(this);
-    _restore();
+  }
+
+  Future<void> initialize() async {
+    await _restore();
   }
 
   // Re-render whenever the OS theme changes, so "Auto (System)" mode
   // reacts live instead of only on the next app launch.
   @override
   void didChangePlatformBrightness() {
-    if (themeMode == AppThemeMode.auto) notifyListeners();
-  }
-
-  Future<void> _restore() async {
-    final prefs = await SharedPreferences.getInstance();
-    final storedMode = prefs.getString('azhly_theme_mode');
-    if (storedMode != null) {
-      themeMode = themeModeFromString(storedMode);
-    } else {
-      // Fall back to the legacy bool flag from earlier app versions.
-      final legacyDark = prefs.getBool('azhly_dark');
-      themeMode = legacyDark == false ? AppThemeMode.light : AppThemeMode.dark;
-    }
-    final userJson = prefs.getString('azhly_user');
-    if (userJson != null) {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final storedMode = prefs.getString('azhly_theme_mode');
+      if (storedMode != null) {
+        themeMode = themeModeFromString(storedMode);
+      } else {
+        // Fall back to the legacy bool flag from earlier app versions.
+        final legacyDark = prefs.getBool('azhly_dark');
+        themeMode = legacyDark == false ? AppThemeMode.light : AppThemeMode.dark;
+      }
+      final userJson = prefs.getString('azhly_user');
+      if (userJson != null) {
+        try {
+          currentUser = AppUser.fromJson(jsonDecode(userJson));
+          isAuthenticated = true;
+        } catch (_) {}
+      }
+    } catch (e) {
+      debugPrint('Error restoring app state: $e');null) {
       try {
         currentUser = AppUser.fromJson(jsonDecode(userJson));
         isAuthenticated = true;
@@ -214,28 +222,34 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
         timer.cancel();
         final allRequests = [...requests, newReq];
         final resolved = resolveConflicts(allRequests);
-        final result = resolved.firstWhere((r) => r.id == newReq.id, orElse: () => newReq);
-        final isConflict = hasConflict || result.status == RequestStatus.rejected;
+        final result =
+            resolved.firstWhere((r) => r.id == newReq.id, orElse: () => newReq);
+        final isConflict =
+            hasConflict || result.status == RequestStatus.rejected;
 
         final notification = isConflict
             ? AppNotification(
                 id: 'n_${DateTime.now().millisecondsSinceEpoch}',
                 title: '⚡ Conflict Alert',
-                message: 'Room $roomName conflict! Request rejected via FCFS policy.',
+                message:
+                    'Room $roomName conflict! Request rejected via FCFS policy.',
                 type: NotificationType.conflict,
                 timestamp: DateTime.now().millisecondsSinceEpoch,
               )
             : AppNotification(
                 id: 'n_${DateTime.now().millisecondsSinceEpoch}',
                 title: '✅ Room Allocated',
-                message: '$roomName successfully allocated for $date $startTime.',
+                message:
+                    '$roomName successfully allocated for $date $startTime.',
                 type: NotificationType.success,
                 timestamp: DateTime.now().millisecondsSinceEpoch,
               );
 
         requests = resolved;
         notifications = [notification, ...notifications];
-        smartEngineResult = isConflict ? SmartEngineResult.conflict : SmartEngineResult.approved;
+        smartEngineResult = isConflict
+            ? SmartEngineResult.conflict
+            : SmartEngineResult.approved;
         if (!isConflict) {
           final roomIdx = rooms.indexWhere((r) => r.id == roomId);
           if (roomIdx != -1) rooms[roomIdx].status = RoomStatus.occupied;
@@ -252,7 +266,8 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
   void approveRequest(String id) {
     final idx = requests.indexWhere((r) => r.id == id);
     if (idx == -1) return;
-    requests[idx] = requests[idx].copyWith(status: RequestStatus.approved, approvedBy: currentUser?.name);
+    requests[idx] = requests[idx].copyWith(
+        status: RequestStatus.approved, approvedBy: currentUser?.name);
     notifications = [
       AppNotification(
         id: 'n_${DateTime.now().millisecondsSinceEpoch}',
@@ -269,7 +284,8 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
   void rejectRequest(String id, String reason) {
     final idx = requests.indexWhere((r) => r.id == id);
     if (idx == -1) return;
-    requests[idx] = requests[idx].copyWith(status: RequestStatus.rejected, rejectionReason: reason);
+    requests[idx] = requests[idx]
+        .copyWith(status: RequestStatus.rejected, rejectionReason: reason);
     notifyListeners();
   }
 

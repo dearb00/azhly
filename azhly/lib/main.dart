@@ -13,7 +13,7 @@ class AzhlyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => AppState(),
+      create: (_) => AppState()..initialize(),
       child: MaterialApp(
         title: 'AZHly',
         debugShowCheckedModeBanner: false,
